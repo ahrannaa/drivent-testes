@@ -79,7 +79,7 @@ describe("GET /enrollments", () => {
 });
 
 describe("GET /enrollments/cep", () => {
-  it("should respond with status 200 when CEP is valid", async () => {
+  it.only("should respond with status 200 when CEP is valid", async () => {
     const response = await server.get("/enrollments/cep?cep=04538132");
     const address = createhAddressWithCEP();
 
@@ -145,7 +145,7 @@ describe("POST /enrollments", () => {
           cep: "90830-563",
           street: faker.address.streetName(),
           city: faker.address.city(),
-          number: faker.datatype.number().toString(),
+          number: faker.datatype.number().toString(), 
           state: faker.helpers.arrayElement(getStates()).code,
           neighborhood: faker.address.secondaryAddress(),
           addressDetail: faker.lorem.sentence(),
